@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-11T08:42:09.772Z</updated>
+  <updated>2021-02-03T08:50:25.251Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,51 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>radare2踩坑记录</title>
+    <link href="http://example.com/2021/02/03/radare2%E8%AE%B0%E5%BD%95/"/>
+    <id>http://example.com/2021/02/03/radare2%E8%AE%B0%E5%BD%95/</id>
+    <published>2021-02-03T05:56:41.000Z</published>
+    <updated>2021-02-03T08:50:25.251Z</updated>
+    
+    <content type="html"><![CDATA[<p>这两天在学习radare2，虽然KALI环境自带了radare2，但自带的版本如果使用<code>r2 -v</code>查看版本会发现其无法显示使用的具体commit版本，故可以在官网进行安装</p>        <h1 id="坑点"   >          <a href="#坑点" class="heading-link"><i class="fas fa-link"></i></a>坑点</h1>              <h2 id="卸载原环境"   >          <a href="#卸载原环境" class="heading-link"><i class="fas fa-link"></i></a>卸载原环境</h2>      <p>在clone了radare2仓库后，可在该仓库的根目录下运行</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make uninstall</span><br><span class="line">make purge</span><br></pre></td></tr></table></div></figure><p>如果想删除所有相关的系统库文件，可以执行：</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make system-purge</span><br></pre></td></tr></table></div></figure>        <h2 id="Module-version-mismatch"   >          <a href="#Module-version-mismatch" class="heading-link"><i class="fas fa-link"></i></a>Module version mismatch</h2>      <p>产生如下的报错信息：</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Module version mismatch &#x2F;home&#x2F;xxx&#x2F;.local&#x2F;share&#x2F;radare2&#x2F;plugins&#x2F;core_pdd.so (5.0.0) vs (5.1.0)</span><br></pre></td></tr></table></div></figure><p>解决的方法比较粗暴，直接将该文件删除即可，之后再用r2pm安装对应的包</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这两天在学习radare2，虽然KALI环境自带了radare2，但自带的版本如果使用&lt;code&gt;r2 -v&lt;/code&gt;查看版本会发现其无法显示使用的具体commit版本，故可以在官网进行安装&lt;/p&gt;
+
+        &lt;h1 id=&quot;坑点&quot;   &gt;
+          </summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>环境碎碎念</title>
+    <link href="http://example.com/2021/01/15/zsh%E7%BB%93%E5%90%88anaconda/"/>
+    <id>http://example.com/2021/01/15/zsh%E7%BB%93%E5%90%88anaconda/</id>
+    <published>2021-01-15T00:59:28.000Z</published>
+    <updated>2021-02-03T08:50:35.995Z</updated>
+    
+    <content type="html"><![CDATA[        <h1 id="ZSH结合anaconda"   >          <a href="#ZSH结合anaconda" class="heading-link"><i class="fas fa-link"></i></a>ZSH结合anaconda</h1>      <p>先退出zsh，进入bash，然后运行如下指令</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">conda init zsh</span><br><span class="line">source ~&#x2F;.zshrc # refresh your shell</span><br><span class="line">source activate base # (optional, on linux) activate base env</span><br></pre></td></tr></table></div></figure>        <h1 id="IPYTHON结合anaconda"   >          <a href="#IPYTHON结合anaconda" class="heading-link"><i class="fas fa-link"></i></a>IPYTHON结合anaconda</h1>      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c anaconda ipython</span><br></pre></td></tr></table></div></figure>        <h1 id="KALI-Linux升级"   >          <a href="#KALI-Linux升级" class="heading-link"><i class="fas fa-link"></i></a>KALI Linux升级</h1>      <p><span class="exturl"><a class="exturl__link"   href="https://www.kali.org/docs/general-use/updating-kali/" >https://www.kali.org/docs/general-use/updating-kali/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p><p>在APT源中添加</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;http.kali.org&#x2F;kali kali-rolling main contrib non-free</span><br><span class="line">deb-src http:&#x2F;&#x2F;http.kali.org&#x2F;kali kali-rolling main contrib non-free</span><br></pre></td></tr></table></div></figure><p>之后运行</p><figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update</span><br><span class="line">sudo apt full-upgrade -y</span><br></pre></td></tr></table></div></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">
+        &lt;h1 id=&quot;ZSH结合anaconda&quot;   &gt;
+          &lt;a href=&quot;#ZSH结合anaconda&quot; class=&quot;heading-link&quot;&gt;&lt;i class=&quot;fas fa-link&quot;&gt;&lt;/i&gt;&lt;/a&gt;ZSH结合anaconda&lt;/h1</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>hyperpwn踩坑</title>
